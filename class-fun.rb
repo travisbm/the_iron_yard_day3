@@ -1,27 +1,36 @@
-class Student
+class Person
 
-  name  # => "Student"
-
-  def sleep
-    puts "Goes to bed"
+  def initialize(name)
+    @name = name        # => "bill", "tessa", "ryan", "travis", "josh", "ashley"
   end
 
-  def study
-    puts "studies"
+  def get_name
+    @name.capitalize  # => "Bill", "Ryan", "Travis", "Josh", "Ashley"
   end
 
-  def gets_name(str)
-    name = str        # => "Travis"
-  end
-
-  def puts_name
-    puts @name   # => nil
+  def set_name(new_name)
+    @name = new_name      # => "bob"
   end
 
 end
 
-travis = Student.new        # => #<Student:0x007f8edc8b1f60>
-travis.gets_name("Travis")  # => "Travis"
-travis.puts_name            # => nil
+person1 = Person.new("bill")   # => #<Person:0x007fd4da8a82c8 @name="bill">
+person2 = Person.new("tessa")  # => #<Person:0x007fd4da8ab018 @name="tessa">
 
-# >>
+person1.get_name         # => "Bill"
+person1.set_name("bob")  # => "bob"
+
+student_records = Array.new                 # => []
+student_records.push(Person.new('ryan'))    # => [#<Person:0x007fd4da8a3868 @name="ryan">]
+student_records.push(Person.new('travis'))  # => [#<Person:0x007fd4da8a3868 @name="ryan">, #<Person:0x007fd4da8a3660 @name="travis">]
+student_records.push(Person.new('josh'))    # => [#<Person:0x007fd4da8a3868 @name="ryan">, #<Person:0x007fd4da8a3660 @name="travis">, #<Person:0x007fd4da8a3408 @name="josh">]
+student_records.push(Person.new('ashley'))  # => [#<Person:0x007fd4da8a3868 @name="ryan">, #<Person:0x007fd4da8a3660 @name="travis">, #<Person:0x007fd4da8a3408 @name="josh">, #<Person:0x007fd4da8a30e8 @name="ashley">]
+
+student_records.each do |student|  # => [#<Person:0x007fd4da8a3868 @name="ryan">, #<Person:0x007fd4da8a3660 @name="travis">, #<Person:0x007fd4da8a3408 @name="josh">, #<Person:0x007fd4da8a30e8 @name="ashley">]
+  puts student.get_name            # => nil, nil, nil, nil
+end                                # => [#<Person:0x007fd4da8a3868 @name="ryan">, #<Person:0x007fd4da8a3660 @name="travis">, #<Person:0x007fd4da8a3408 @name="josh">, #<Person:0x007fd4da8a30e8 @name="ashley">]
+
+# >> Ryan
+# >> Travis
+# >> Josh
+# >> Ashley
