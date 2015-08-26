@@ -32,17 +32,39 @@
 
 class Animal
 
+  def breath
+    "*inhales*"  # => "*inhales*", "*inhales*"
+  end
+
   def speak
-    "grrrrrrr"  # => "grrrrrrr"
+    "grrrrrrr"
   end
 
 end
 
 class Cat < Animal
+
+  def speak
+    "meow"   # => "meow"
+  end
+
 end
 
-cat = Cat.new  # => #<Cat:0x007fce9c8ae8b0>
-cat.speak      # => "grrrrrrr"
+class Dog < Animal
+
+  def speak
+    "woof"   # => "woof"
+  end
+
+end
+
+cat = Cat.new  # => #<Cat:0x007fa2da099370>
+cat.speak      # => "meow"
+cat.breath     # => "*inhales*"
+
+dog = Dog.new  # => #<Dog:0x007fa2da098e70>
+dog.breath     # => "*inhales*"
+dog.speak      # => "woof"
 
 
 
