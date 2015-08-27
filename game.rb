@@ -104,21 +104,21 @@ puts dealer.print_dealer_hand  # => nil
 puts  # => nil
 
 puts "Your hand is: "   # => nil
-puts player.print_hand  # => nil
+player.print_hand  # => nil
 
 if player.hand_value == 21                        # => false
   puts "Blackjack! You win"
   puts "Dealer hand is: "
-  puts dealer.print_hand
+  dealer.print_hand
   puts "Your hand is: "
-  puts player.print_hand
+  player.print_hand
 else
   print "Would you like to hit (Y)es or (N)o > "  # => nil
   answer = gets.chomp                             # ~> NoMethodError: undefined method `chomp' for nil:NilClass
   if answer.upcase == "Y"
     player.hit(deck.draw)
     puts "Your hand is: "
-    puts player.print_hand\
+    player.print_hand
 
     reply = ""
     while player.hand_value < 21 && reply.upcase != "N" do
@@ -127,7 +127,7 @@ else
         if reply.upcase == "Y"
           player.hit(deck.draw)
           puts "Your hand is: "
-          puts player.print_hand
+          player.print_hand
         end
     end
   end
@@ -135,68 +135,75 @@ else
   if player.hand_value > 21
     puts "Sorry, you bust!"
     puts "Dealer hand is: "
-    puts dealer.print_hand
+    dealer.print_hand
     puts "Your hand is: "
-    puts player.print_hand
+    player.print_hand
   end
 
-  puts "Dealer hand is: "
-  puts dealer.print_hand
+
   if player.hand_value < 21
     if dealer.hand_value >= 16 && dealer.hand_value < player.hand_value
       puts "You win!"
       puts "Dealer hand is: "
-      puts dealer.print_hand
+      dealer.print_hand
       puts "Your hand is: "
-      puts player.print_hand
+      player.print_hand
     elsif dealer.hand_value >= 16 && dealer.hand_value == player.hand_value
       puts "Draw! Push"
       puts "Dealer hand is: "
-      puts dealer.print_hand
+      dealer.print_hand
       puts "Your hand is: "
-      puts player.print_hand
+      player.print_hand
     elsif dealer.hand_value < 16
+      puts "Dealer hand is: "
+      dealer.print_hand
       while dealer.hand_value < 16 do
       dealer.hit(deck.draw)
       end
         if dealer.hand_value >= 16 && dealer.hand_value < player.hand_value
         puts "You win!"
         puts "Dealer hand is: "
-        puts dealer.print_hand
+        dealer.print_hand
         puts "Your hand is: "
-        puts player.print_hand
+        player.print_hand
         elsif dealer.hand_value > 21
         puts "Dealer bust, you win!"
         puts "Dealer hand is: "
-        puts dealer.print_hand
+        dealer.print_hand
         puts "Your hand is: "
-        puts player.print_hand
+        player.print_hand
+        elsif dealer.hand_value == player.hand_value
+        puts "Draw! Push"
+        puts "Dealer hand is: "
+        dealer.print_hand
+        puts "Your hand is: "
+        player.print_hand
         else
         puts "Sorry, you lose."
         puts "Dealer hand is: "
-        puts dealer.print_hand
+        dealer.print_hand
         puts "Your hand is: "
-        puts player.print_hand
+        player.print_hand
         end
     else
       puts "Sorry, you lose."
       puts "Dealer hand is: "
-      puts dealer.print_hand
+      dealer.print_hand
       puts "Your hand is: "
-      puts player.print_hand
+      player.print_hand
     end
   elsif player.hand_value == 21 && dealer.hand_value < 21
     puts "You win!"
     puts "Dealer hand is: "
-    puts dealer.print_hand
+    dealer.print_hand
     puts "Your hand is: "
-    puts player.print_hand
+    player.print_hand
   elsif player.hand_value == dealer.hand_value
     puts "Draw! Push"
     puts "Dealer hand is: "
-    puts dealer.print_hand
+    dealer.print_hand
     puts "Your hand is: "
-    puts player.print_hand
+    player.print_hand
   end
 end
 # puts "Dealer hand is: "
