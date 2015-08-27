@@ -1,25 +1,25 @@
 class Deck
 
   def initialize
-    @cards = []
-    suits = [:hearts, :diamonds, :spades, :clubs]
-    suits.each do |suit|
-      (2..10).each do |value|
-        @cards << Card.new(suit, value)
-      end
-    @cards << Card.new(suit, "J")
-    @cards << Card.new(suit, "Q")
-    @cards << Card.new(suit, "K")
-    @cards << Card.new(suit, "A")
-    end
+    @cards = []                                    # => []
+    suits = [:hearts, :diamonds, :spades, :clubs]  # => [:hearts, :diamonds, :spades, :clubs]
+    suits.each do |suit|                           # => [:hearts, :diamonds, :spades, :clubs]
+      (2..10).each do |value|                      # => 2..10, 2..10, 2..10, 2..10
+        @cards << Card.new(suit, value)            # => [#<Card:0x007f86a10a3078 @suit=:hearts, @value=2, @num_value=0>], [#<Card:0x007f86a10a3078 @suit=:hearts, @value=2, @num_value=0>, #<Card:0x007f86a10a2bc8 @suit=:hearts, @value=3, @num_value=0>], [#<Card:0x007f86a10a3078 @suit=:hearts, @value=2, @num_value=0>, #<Card:0x007f86a10a2bc8 @suit=:hearts, @value=3, @num_value=0>, #<Card:0x007f86a10a2858 @suit=:hearts, @value=4, @num_value=0>], [#<Card:0x007f86a10a3078 @suit=:hearts, @value=2, @...
+      end                                          # => 2..10, 2..10, 2..10, 2..10
+    @cards << Card.new(suit, "J")                  # => [#<Card:0x007f86a10a3078 @suit=:hearts, @value=2, @num_value=0>, #<Card:0x007f86a10a2bc8 @suit=:hearts, @value=3, @num_value=0>, #<Card:0x007f86a10a2858 @suit=:hearts, @value=4, @num_value=0>, #<Card:0x007f86a10a2448 @suit=:hearts, @value=5, @num_value=0>, #<Card:0x007f86a10a1f48 @suit=:hearts, @value=6, @num_value=0>, #<Card:0x007f86a10a19a8 @suit=:hearts, @value=7, @num_value=0>, #<Card:0x007f86a10a12f0 @suit=:hearts, @value=8, @num_va...
+    @cards << Card.new(suit, "Q")                  # => [#<Card:0x007f86a10a3078 @suit=:hearts, @value=2, @num_value=0>, #<Card:0x007f86a10a2bc8 @suit=:hearts, @value=3, @num_value=0>, #<Card:0x007f86a10a2858 @suit=:hearts, @value=4, @num_value=0>, #<Card:0x007f86a10a2448 @suit=:hearts, @value=5, @num_value=0>, #<Card:0x007f86a10a1f48 @suit=:hearts, @value=6, @num_value=0>, #<Card:0x007f86a10a19a8 @suit=:hearts, @value=7, @num_value=0>, #<Card:0x007f86a10a12f0 @suit=:hearts, @value=8, @num_va...
+    @cards << Card.new(suit, "K")                  # => [#<Card:0x007f86a10a3078 @suit=:hearts, @value=2, @num_value=0>, #<Card:0x007f86a10a2bc8 @suit=:hearts, @value=3, @num_value=0>, #<Card:0x007f86a10a2858 @suit=:hearts, @value=4, @num_value=0>, #<Card:0x007f86a10a2448 @suit=:hearts, @value=5, @num_value=0>, #<Card:0x007f86a10a1f48 @suit=:hearts, @value=6, @num_value=0>, #<Card:0x007f86a10a19a8 @suit=:hearts, @value=7, @num_value=0>, #<Card:0x007f86a10a12f0 @suit=:hearts, @value=8, @num_va...
+    @cards << Card.new(suit, "A")                  # => [#<Card:0x007f86a10a3078 @suit=:hearts, @value=2, @num_value=0>, #<Card:0x007f86a10a2bc8 @suit=:hearts, @value=3, @num_value=0>, #<Card:0x007f86a10a2858 @suit=:hearts, @value=4, @num_value=0>, #<Card:0x007f86a10a2448 @suit=:hearts, @value=5, @num_value=0>, #<Card:0x007f86a10a1f48 @suit=:hearts, @value=6, @num_value=0>, #<Card:0x007f86a10a19a8 @suit=:hearts, @value=7, @num_value=0>, #<Card:0x007f86a10a12f0 @suit=:hearts, @value=8, @num_va...
+    end                                            # => [:hearts, :diamonds, :spades, :clubs]
   end
 
   def draw
-    @cards.pop
+    @cards.pop  # => #<Card:0x007f86a10915f8 @suit=:diamonds, @value=5, @num_value=0>, #<Card:0x007f86a109abd0 @suit=:hearts, @value="Q", @num_value=0>, #<Card:0x007f86a1089bc8 @suit=:diamonds, @value=8, @num_value=0>
   end
 
   def shuffle
-    @cards.shuffle!
+    @cards.shuffle!  # => [#<Card:0x007f86a0889d10 @suit=:clubs, @value=6, @num_value=0>, #<Card:0x007f86a1081900 @suit=:diamonds, @value="J", @num_value=0>, #<Card:0x007f86a0880940 @suit=:clubs, @value=8, @num_value=0>, #<Card:0x007f86a0873240 @suit=:clubs, @value=10, @num_value=0>, #<Card:0x007f86a1069738 @suit=:spades, @value=5, @num_value=0>, #<Card:0x007f86a10a0350 @suit=:hearts, @value=10, @num_value=0>, #<Card:0x007f86a1099de8 @suit=:hearts, @value="K", @num_value=0>, #<Card:0x007f86a1...
   end
 
   def length
@@ -31,9 +31,9 @@ end
 class Card
 
   def initialize(suit, value)
-    @suit = suit
-    @value = value
-    @num_value = 0
+    @suit = suit               # => :hearts, :hearts, :hearts, :hearts, :hearts, :hearts, :hearts, :hearts, :hearts, :hearts, :hearts, :hearts, :hearts, :diamonds, :diamonds, :diamonds, :diamonds, :diamonds, :diamonds, :diamonds, :diamonds, :diamonds, :diamonds, :diamonds, :diamonds, :diamonds, :spades, :spades, :spades, :spades, :spades, :spades, :spades, :spades, :spades, :spades, :spades, :spades, :spades, :clubs, :clubs, :clubs, :clubs, :clubs, :clubs, :clubs, :clubs, :clubs, :clubs, :clu...
+    @value = value             # => 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"
+    @num_value = 0             # => 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
   end
 
   def get_suit
@@ -45,35 +45,36 @@ class Card
   end
 
   def get_num_value
-    if @value == "J" || @value == "Q" || @value == "K"
-      @num_value = 10
-    elsif @value == "A"
+    if @value == "J" || @value == "Q" || @value == "K"  # => false, true, false
+      @num_value = 10                                   # => 10
+    elsif @value == "A"                                 # => false, false
       @num_value = 11
     else
-      @num_value = @value
-    end
+      @num_value = @value                               # => 5, 8
+    end                                                 # => 5, 10, 8
   end
 
   def display
-    "#{@value} of #{@suit}"
+    "#{@value} of #{@suit}"  # => "5 of diamonds", "Q of hearts", "5 of diamonds", "Q of hearts", "8 of diamonds"
   end
 
 end
 
 class Player
 
-  def initialize
-    @hand_value = 0
+  def initialize(card_1, card_2)
+    @hand_value = card_1.get_num_value + card_2.get_num_value  # => 15
+    @hand = []                                                 # => []
+    @hand.push(card_1, card_2)                                 # => [#<Card:0x007f86a10915f8 @suit=:diamonds, @value=5, @num_value=5>, #<Card:0x007f86a109abd0 @suit=:hearts, @value="Q", @num_value=10>]
   end
 
-  def set_hand(card_1, card_2)
-    @hand_value = card_1.get_num_value + card_2.get_num_value
-    @hand = []
-    @hand.push(card_1, card_2)
+  def hit(card)
+    @hand.push(card)                   # => [#<Card:0x007f86a10915f8 @suit=:diamonds, @value=5, @num_value=5>, #<Card:0x007f86a109abd0 @suit=:hearts, @value="Q", @num_value=10>, #<Card:0x007f86a1089bc8 @suit=:diamonds, @value=8, @num_value=0>]
+    @hand_value += card.get_num_value  # => 23
   end
 
   def hand
-    @hand
+    @hand   # => [#<Card:0x007f86a10915f8 @suit=:diamonds, @value=5, @num_value=5>, #<Card:0x007f86a109abd0 @suit=:hearts, @value="Q", @num_value=10>], [#<Card:0x007f86a10915f8 @suit=:diamonds, @value=5, @num_value=5>, #<Card:0x007f86a109abd0 @suit=:hearts, @value="Q", @num_value=10>, #<Card:0x007f86a1089bc8 @suit=:diamonds, @value=8, @num_value=8>]
   end
 
 end
@@ -89,16 +90,15 @@ end
 
 
 
-# deck = Deck.new                        # => #<Deck:0x007fb0b315a8e0 @cards=[#<Card:0x007fb0b315a278 @suit=:hearts, @value=2, @num_value=0>, #<Card:0x007fb0b3159da0 @suit=:hearts, @value=3, @num_value=0>, #<Card:0x007fb0b31599e0 @suit=:hearts, @value=4, @num_value=0>, #<Card:0x007fb0b3159558 @suit=:hearts, @value=5, @num_value=0>, #<Card:0x007fb0b3158fe0 @suit=:hearts, @value=6, @num_value=0>, #<Card:0x007fb0b31588d8 @suit=:hearts, @value=7, @num_value=0>, #<Card:0x007fb0b31581a8 @suit=:hearts...
-# deck.shuffle                           # => [#<Card:0x007fb0b3113df0 @suit=:spades, @value=6, @num_value=0>, #<Card:0x007fb0b3143f28 @suit=:diamonds, @value=5, @num_value=0>, #<Card:0x007fb0b30709e8 @suit=:clubs, @value=9, @num_value=0>, #<Card:0x007fb0b3133b78 @suit=:diamonds, @value="J", @num_value=0>, #<Card:0x007fb0b3158fe0 @suit=:hearts, @value=6, @num_value=0>, #<Card:0x007fb0b315a278 @suit=:hearts, @value=2, @num_value=0>, #<Card:0x007fb0b31506d8 @suit=:hearts, @value="A", @num_value=0...
-# player = Player.new                    # => #<Player:0x007fb0b30304b0 @hand_value=0>
-# player.set_hand(deck.draw, deck.draw)  # => [#<Card:0x007fb0b31398c0 @suit=:diamonds, @value=10, @num_value=10>, #<Card:0x007fb0b3141e30 @suit=:diamonds, @value=7, @num_value=7>]
+# deck = Deck.new                            # => #<Deck:0x007f86a10a3708 @cards=[#<Card:0x007f86a10a3078 @suit=:hearts, @value=2, @num_value=0>, #<Card:0x007f86a10a2bc8 @suit=:hearts, @value=3, @num_value=0>, #<Card:0x007f86a10a2858 @suit=:hearts, @value=4, @num_value=0>, #<Card:0x007f86a10a2448 @suit=:hearts, @value=5, @num_value=0>, #<Card:0x007f86a10a1f48 @suit=:hearts, @value=6, @num_value=0>, #<Card:0x007f86a10a19a8 @suit=:hearts, @value=7, @num_value=0>, #<Card:0x007f86a10a12f0 @suit=:he...
+# deck.shuffle                               # => [#<Card:0x007f86a0889d10 @suit=:clubs, @value=6, @num_value=0>, #<Card:0x007f86a1081900 @suit=:diamonds, @value="J", @num_value=0>, #<Card:0x007f86a0880940 @suit=:clubs, @value=8, @num_value=0>, #<Card:0x007f86a0873240 @suit=:clubs, @value=10, @num_value=0>, #<Card:0x007f86a1069738 @suit=:spades, @value=5, @num_value=0>, #<Card:0x007f86a10a0350 @suit=:hearts, @value=10, @num_value=0>, #<Card:0x007f86a1099de8 @suit=:hearts, @value="K", @num_value...
+# player = Player.new(deck.draw, deck.draw)  # => #<Player:0x007f86a0840c00 @hand_value=15, @hand=[#<Card:0x007f86a10915f8 @suit=:diamonds, @value=5, @num_value=5>, #<Card:0x007f86a109abd0 @suit=:hearts, @value="Q", @num_value=10>]>
 
-# player.hand.each do |card| puts card.display end  # => [#<Card:0x007fb0b31398c0 @suit=:diamonds, @value=10, @num_value=10>, #<Card:0x007fb0b3141e30 @suit=:diamonds, @value=7, @num_value=7>]
+# player.hand.each do |card| puts card.display end  # => [#<Card:0x007f86a10915f8 @suit=:diamonds, @value=5, @num_value=5>, #<Card:0x007f86a109abd0 @suit=:hearts, @value="Q", @num_value=10>]
 
-# player.set_hand(deck.draw, deck.draw)  # => [#<Card:0x007fb0b31310a8 @suit=:diamonds, @value="K", @num_value=10>, #<Card:0x007fb0b313b7b0 @suit=:diamonds, @value=9, @num_value=9>]
+# player.hit(deck.draw)  # => 23
 
-# player.hand.each do |card| puts card.display end  # => [#<Card:0x007fb0b31310a8 @suit=:diamonds, @value="K", @num_value=10>, #<Card:0x007fb0b313b7b0 @suit=:diamonds, @value=9, @num_value=9>]
+# player.hand.each do |card| puts card.display end  # => [#<Card:0x007f86a10915f8 @suit=:diamonds, @value=5, @num_value=5>, #<Card:0x007f86a109abd0 @suit=:hearts, @value="Q", @num_value=10>, #<Card:0x007f86a1089bc8 @suit=:diamonds, @value=8, @num_value=8>]
 
 
 
@@ -110,3 +110,9 @@ end
 
 
 
+
+# >> 5 of diamonds
+# >> Q of hearts
+# >> 5 of diamonds
+# >> Q of hearts
+# >> 8 of diamonds
